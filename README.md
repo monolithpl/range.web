@@ -15,6 +15,7 @@ Highlight most frequently used English words in texts. Adaptation of Paul Nation
 ### further reading
 - [Paul Nation's webpage](http://www.victoria.ac.nz/lals/about/staff/paul-nation)
 - [BNC/COCA word family lists README](http://www.victoria.ac.nz/lals/about/staff/publications/paul-nation/Information-on-the-BNC_COCA-word-family-lists.pdf)
+- [Some Research Uses Of Vocabprofile (VP)](http://www.lextutor.ca/vp/research.html)
 
 ### implementation details
 Read more about performance-first string lookups in javascript using trie-s here:
