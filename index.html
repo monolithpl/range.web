@@ -290,8 +290,9 @@ function uniq(a) {
 		document.getElementById('input').value = "Are the numbers of boys and girls in our families really down to the toss of a coin? In fact, it's not quite so simple. You as an individual may actually load the dice towards a son or a daughter right at conception. Especially the condition of mothers could be playing a part according to some studies. Ruth Mace was in Ethiopia when that country was hit by a severe food shortage. As part of a study on nutrition she looked at the birth statistics of women caught up in the crisis: Mothers that had a higher body-mass index were more likely to have boys than girls. Why this happens is still open to debate. Valerie Grant says dominance in personality may also tip the balance towards male offspring. 'I've come to notice that dominant women tend to have more boys. The explanation may be that dominant women have higher levels of the male hormone, testosterone.' She also proposes an explanation for the higher ratio of boys born in times of war. It also features the testosterone that is at the heart of her dominance theory, but it's all about stress in this case. 'Testosterone in women rises under stress. So, women who might be just below the level for conceiving a son in normal times may be more likely to conceive sons in times of hardship.'"
 		document.getElementById("search").click()
 	})
-	var matches = [0,0,0,0,0,0,0,0,0,0]
+	
 	document.getElementById("search").addEventListener("click", function(event) {
+		var matches = [0,0,0,0,0,0,0,0,0,0]
 		var sentence = document.getElementById("input").value.toLowerCase()
 		sentenceWords = sentence.match(/\w+/g)
 		sentenceWords = uniq(sentenceWords)
