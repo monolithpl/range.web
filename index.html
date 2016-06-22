@@ -313,7 +313,7 @@ canvas {
 		<button id="search">analyze</button>
 		<button id="example">show demo</button>
 		<button id="perspective">perspective</button>
-		<canvas id = "pie" class="chartlet" data-type="pie" data-colors="#FFE342 #FFFD5C #FFFF75 #FFFF8F #FFFFA8 #FFFFC1 #FFFFC1 #FFFFC1 #FFFFC1 #FFFFC1 #FFFFC1" data-sets="" width="300px" height="300px" data-opts="bgcolor:#fff"></canvas>
+		<div id="plot"><canvas id="canvas" width="300px" height="300px"></canvas></div>
 	</div>
 	<div class="styled-select">
 		<select id="wordlist">
@@ -426,7 +426,19 @@ var ftrie = []
 			}
 		}
 		matchesPercent = []
-		for (index in matches) matchesPercent.push(Math.round(matches[index]/sentenceWords.length*100))
+		var pieOptions = []
+		var pieColors = ['#DBBA00','#E8C70D','#F5D41A','#FFE026','#FFED33',
+						'#FFFA40','#FFFF4D','#FFFF59','#FFFF66','#FFFF73',
+						'#FFFF80','#FFFF8C','#FFFF99','#FFFFA6','#FFFFB3',
+						'#FFFFBF','#FFFFCC','#FFFFD9','#FFFFDC','#FFFFDE',
+						'#FFFFE1','#FFFFE3','#FFFFE6','#FFFFE8','#FFFFEB',
+						'#FFFFED','#FFFFF0']
+		for (i=0; i<matches.length; i++) {
+			var percentage = Math.round(matches[i]/sentenceWords.length*100)
+			matchesPercent.push(percentage)
+			pieOptions.push({title: "#"+(i+1)+"000",color:pieColors[i],values:[percentage]})
+		}
+		plotter({container:"plot", canvas:"canvas", datas:pieOptions,labels:{color:"#444",x:1},anim:2,fill:"radial",mode:"pie:donut",margins:[20,20,20,20],mouseover:{text:"%t: %p"},legends:false})
 		
 		for (j=0; j<ftrie.length;j++) {
 			if (matches[j] > 0) {
@@ -437,10 +449,10 @@ var ftrie = []
 			
 		}
 		
-		document.getElementById('pie').dataset.sets = '[' + matches.join(' ') + ']'
-		document.getElementById('pie').style.display = 'block'
-		Chartlets.render()
+		//document.getElementById('pie').dataset.sets = '[' + matches.join(' ') + ']'
+		//document.getElementById('pie').style.display = 'block'
+		//Chartlets.render()
 	})
 </script>
-<script src="chartlets.min.js"></script>
+<script src="harry.min.js"></script>
 </html>
